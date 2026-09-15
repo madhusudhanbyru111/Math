@@ -1,1 +1,34 @@
-Question : 
+Question : If there are n people in a room, how large 
+must n be for there to be at least a 50% chance that at 
+least 2 people share a birthday?
+
+Instead of Directly calculating -> P(at least 2 people share)
+
+calculating P(at least 2 people share) is difficult because there are many possible ways people 
+can share birthdays.
+
+so, we can just calculate the opposite event -> P(no one shares)
+
+Then:
+P(at least 2 share) = 1-P(no one shares)
+
+Solution:
+person 1 can have any of the days in 365 days
+so, p(first person's birthday) = 365/365
+p(second person's birthday) = 364/365 (because person one took one of the days)
+...
+...
+
+
+so, P(no one shares)=365/365​×364​/365×363/365​​×....×365−n+1​/365
+
+why multiplied -> what is the probability of two things must happen, AND -> p(aub) = p(a)p(b/a)
+
+so, p(no one shares) = 365!/(365 -n)!365^n
+
+now for p(atlest 2 share) = 1 - 365!/(365 -n)!365^n
+
+so, here for only n = 23, the p(atleast 2 shares) is near to 50%
+
+so, the n = 23 is the correct answer
+	​
