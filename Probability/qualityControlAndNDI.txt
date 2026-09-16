@@ -1,0 +1,101 @@
+Question:
+Quality Control & NDI — Probability of Defectives in a Sample
+
+Question
+
+Suppose we have a large inventory Say
+
+n = total number of items in the lot
+k = total number of defective items in the lot
+
+We randomly take a small sample r:
+
+r = sample size
+ACTUAL QUESTION : 
+If the sample contains exactly m defective items, 
+what is the probability (likelihood) that this 
+particular sample can occur when we randomly 
+select r items from the large lot of n items 
+containing k defectives?
+
+Important: What are we actually finding?
+
+We are NOT trying to find:
+how many defective items are in the inventory
+how many defectives should exist
+
+Those values are already given/assumed.
+We are finding:
+
+The probability of occurrence of a sample of size r 
+containing exactly m defectives, 
+when it is taken from a larger lot containing n items 
+and k defectives.
+
+In other words:
+Out of all possible samples of size r that 
+we could take from the large inventory, 
+what percentage of those possible samples would 
+contain exactly m defectives?
+
+
+answer:
+ p(m defective in r sample) = (kCm)((n-k)C(r-m))
+                              -------------------
+                                    nCr
+
+The denominator is obviously ncr, the number of ways
+sample r can be chosen in whole inventory n
+
+the nominator part is divided in to two parts
+-> finding m defective (intersected with k) which can be found
+   in multiple ways of k
+-> finding r-m non defective (intersected with n-k)
+   which can be found in multiple ways of n-k
+
+Multiplying the both defective and non-defective parts give us
+all the ways the sample r can be found in inventory n
+
+PLEASE LOOK AT SET DIAGRAM
+
+Calculating the probability of finding m=2 defectives 
+in a small sample of r=5 allows you to make statistical 
+decisions about an entire shipment without inspecting all 
+N=100 items—a foundational practice in quality control known 
+as Acceptance Sampling.
+
+1. Testing Hypotheses About Lot Quality
+In the real world, you do not actually know 
+K(the true number of defectives in the warehouse batch). 
+A supplier might claim K = 10 (a 10% defect rate). 
+If you pull r = 5 items and find m = 2 defectives, you 
+plug K = 10 into the hypergeometric formula and get a 
+probability of roughly 7%. Because pulling 2 defectives 
+out of 5 is such a low-probability event under a 10% defect 
+rate, this result warns you that the batch is almost certainly 
+worse than the supplier claimed, giving you mathematical 
+justification to reject the shipment.
+
+2. Setting Accept/Reject Rules
+Quality control engineers use these probability 
+distributions to establish inspection rules before 
+touching a shipment 
+(e.g., "Inspect r = 5 items; accept the lot if m<=1, reject if m>=2"). 
+Calculating the exact probabilities helps manage two 
+critical operational risks:
+
+Consumer's Risk: The probability of accidentally 
+accepting a bad batch because a random sample happened to 
+look okay.
+Producer's Risk: The probability of accidentally rejecting a 
+good batch because a random sample happened to hit a rare 
+clump of defects.
+
+3. Saving Time and Inspection Costs
+When testing is destructive 
+(e.g., crash-testing components, stress-testing materials) 
+or labor-intensive (NDI ultrasonic scans), 
+inspecting 100% of a batch is impossible or cost-prohibitive. 
+Calculating the hypergeometric probability tells you how much 
+statistical confidence you gain from a sample of 5 versus a 
+sample of 20.
